@@ -1,8 +1,9 @@
+import Navbar from "./components/Navbar"
 
 const App = () => {
   return (
-    <div className='text-3xl'>
-      App
+    <div className="hidden md:block lg:block">
+      <Navbar />
     </div>
   )
 }
