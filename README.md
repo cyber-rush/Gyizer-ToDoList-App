@@ -1,8 +1,27 @@
-# React + Vite
+# My React Note Taking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple note-taking web application built with React. It allows users to add, update, delete, and view notes.
 
-Currently, two official plugins are available:
+![image](https://github.com/cyber-rush/Gyizer-ToDoList-App/assets/66362774/e2603863-eaaa-4ed9-9163-9bb2a6ba54e4)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features
+
+- Add new notes with titles and content
+- Update existing notes
+- Delete notes
+- Responsive design
+- Limit Title and Content Length
+
+## Technologies Used
+
+- React
+- JavaScript
+- Tailwind CSS
+
+## How to Run Locally
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/react-note-taking-app.git
