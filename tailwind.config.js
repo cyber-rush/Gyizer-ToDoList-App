@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         'main-orange': '#FF8303',
-        'body-gray': '#1F1E1B'
+        'body-orange': '#A35709',
+        'body-gray': '#1F1E1B',
+        'dark-gray': '#1B1A17'
       }
     },
   },

@@ -1,11 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import addButton from "./../assets/addButton.png";
 
-const CreateArea = ({ onAdd }) => {
-    const [note, setNote] = useState({
-        title: "",
-        content: ""
-    });
+const CreateArea = ({ onAdd, note, setNote, isEdit, setIsEdit, notes, setNotes, updateNoteIndex }) => {
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -18,6 +14,7 @@ const CreateArea = ({ onAdd }) => {
         });
     };
 
+
     const submitNote = (event) => {
         onAdd(note);
         setNote({
@@ -27,19 +24,33 @@ const CreateArea = ({ onAdd }) => {
         event.preventDefault();
     };
 
+    const updateNote = (event) => {
+        event.preventDefault();
+        // Assuming you have the index of the note being updated
+        const updatedNotes = [...notes];
+        updatedNotes[updateNoteIndex] = note; // Update the note in the array
+        setNotes(updatedNotes); // Update the notes state with the updated array
+        setNote({
+            title: "",
+            content: ""
+        });
+
+        setIsEdit(false)
+    };
+
     return (
         <div className="my-32 max-w-lg mx-auto">
             <form className="grid grid-cols-2 gap-4">
                 <div className="grid gap-4">
                     <input
-                        className="bg-body-gray border-main-orange border-solid border-2 rounded-md w-full"
+                        className="bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2"
                         name="title"
                         onChange={handleChange}
                         value={note.title}
                         placeholder="Title"
                     />
                     <textarea
-                        className="bg-body-gray border-main-orange border-solid border-2 rounded-md w-full"
+                        className="bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2"
                         name="content"
                         onChange={handleChange}
                         value={note.content}
@@ -47,17 +58,17 @@ const CreateArea = ({ onAdd }) => {
                         rows="1"
                     />
                 </div>
-                <div className="grid  col-span-1 gap-4">
+                <div className="grid col-span-1 gap-4">
                     <button
-                        className="bg-main-orange text-white px-4 py-2 rounded-md w-full"
-                        onClick={submitNote}
+                        className=" text-white px-4 py-2 rounded-md w-full"
+                        onClick={isEdit ? updateNote : submitNote}
                     >
-                        Add
+                        {isEdit ? 'UPDATE' : <img src={addButton} alt="Add" />}
+
+
                     </button>
                 </div>
-
             </form>
-
         </div>
     );
 };
