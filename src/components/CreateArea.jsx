@@ -1,7 +1,10 @@
 import addButton from "./../assets/addButton.png";
 
-const CreateArea = ({ onAdd, note, setNote, isEdit, setIsEdit, notes, setNotes, updateNoteIndex }) => {
-
+const CreateArea = (
+    { onAdd, note, setNote,
+        isEdit, setIsEdit, notes,
+        setNotes, updateNoteIndex, isSmallScreen }
+) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -39,18 +42,18 @@ const CreateArea = ({ onAdd, note, setNote, isEdit, setIsEdit, notes, setNotes, 
     };
 
     return (
-        <div className="my-32 max-w-lg mx-auto">
-            <form className="grid grid-cols-2 gap-4">
-                <div className="grid gap-4">
+        <div className={`${!isSmallScreen ? 'max-w-lg mx-auto' : 'mx-6'} my-32`}>
+            <form className="flex">
+                <div className="flex flex-col gap-4 w-full"> {/* Added w-full class */}
                     <input
-                        className="bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2"
+                        className="col-span-2 bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2" // Added w-full class
                         name="title"
                         onChange={handleChange}
                         value={note.title}
                         placeholder="Title"
                     />
                     <textarea
-                        className="bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2"
+                        className="col-span-2 bg-body-gray border-body-orange border-solid border-2 rounded-md w-full px-4 py-2" // Added w-full class
                         name="content"
                         onChange={handleChange}
                         value={note.content}
@@ -58,18 +61,16 @@ const CreateArea = ({ onAdd, note, setNote, isEdit, setIsEdit, notes, setNotes, 
                         rows="1"
                     />
                 </div>
-                <div className="grid col-span-1 gap-4">
-                    <button
-                        className=" text-white px-4 py-2 rounded-md w-full"
-                        onClick={isEdit ? updateNote : submitNote}
-                    >
-                        {isEdit ? 'UPDATE' : <img src={addButton} alt="Add" />}
 
-
-                    </button>
-                </div>
+                <button
+                    className="row-span-2 text-white px-4 py-2 rounded-md "
+                    onClick={isEdit ? updateNote : submitNote}
+                >
+                    {isEdit ? 'UPDATE' : <img src={addButton} alt="Add" />}
+                </button>
             </form>
         </div>
+
     );
 };
 
