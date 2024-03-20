@@ -24,4 +24,4 @@ This is a simple note-taking web application built with React. It allows users t
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/react-note-taking-app.git
+git clone https://github.com/cyber-rush/Gyizer-ToDoList-App
